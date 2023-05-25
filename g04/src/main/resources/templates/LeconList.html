@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des lecons</title>
+    <!-- Add Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header class="bg-primary">
+    <h1 class="p-3 mb-2 bg-secondary text-white">Liste des leçons</h1>
+</header>
+<main>
+    <div class="container">
+        <table class="table">
+            <thead class="table-secondary">
+            <tr>
+                <th class="table-secondary">Id</th>
+                <th class="table-secondary">Date</th>
+                <th class="table-secondary">Instructeur</th>
+                <th class="table-secondary">Vehicule</th>
+                <th class="table-secondary">Eleve</th>
+                <th class="table-secondary">Supprimer</th>
+                <th class="table-secondary">Modifier</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="lecon:${leconJsp}">
+                <td th:text="${lecon.idL}"></td>
+                <td th:text="${lecon.dateL}"></td>
+                <td th:text="${lecon.instructeur}"></td>
+                <td th:text="${lecon.vehicule}"></td>
+                <td th:text="${lecon.eleve}"></td>
+                <td>
+                    <a class="btn btn-outline-danger"
+                       onclick="return confirm('Vous êtes sûr que vous voulez supprimer cet eleve?')"
+                       th:href="@{deleteLecon(id=${lecon.idL})}">
+                        Supprimer cette leçon
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-info"
+                       th:href="@{showLecon(id=${lecon.idL})}">
+                        Modifier cette leçon
+                    </a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <a href="createLecon" class="btn btn-outline-success">Création de la lecon</a>
+    </div>
+
+</footer>
+
+<!-- Add Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

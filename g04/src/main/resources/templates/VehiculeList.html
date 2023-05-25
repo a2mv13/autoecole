@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des vehicules</title>
+    <!-- Add Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header class="bg-primary">
+    <h1 class="p-3 mb-2 bg-secondary text-white">Liste des vehicules</h1>
+</header>
+<main>
+    <div class="container">
+        <table class="table">
+            <thead class="table-secondary">
+            <tr>
+                <th class="table-secondary">Id</th>
+                <th class="table-secondary">Modèle</th>
+                <th class="table-secondary">Immatriculation</th>
+                <th class="table-secondary">Supprimer</th>
+                <th class="table-secondary">Modifier</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="vehicule:${vehiculeJsp}">
+                <td th:text="${vehicule.idV}"></td>
+                <td th:text="${vehicule.modele}"></td>
+                <td th:text="${vehicule.immatriculation}"></td>
+                <td>
+                    <a class="btn btn-outline-danger"
+                       onclick="return confirm('Vous êtes sûr que vous voulez supprimer ce vehicule?')"
+                       th:href="@{deleteVehicule(id=${vehicule.idV})}">
+                        Supprimer ce vehicule
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-info"
+                       th:href="@{showVehicule(id=${vehicule.idV})}">
+                        Modifier ce vehicule
+                    </a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <a href="createCours" class="btn btn-outline-success">Création du Cours</a>
+    </div>
+
+</footer>
+
+<!-- Add Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

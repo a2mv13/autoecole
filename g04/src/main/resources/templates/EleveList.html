@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des eleves</title>
+    <!-- Add Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header class="bg-primary">
+    <h1 class="p-3 mb-2 bg-secondary text-white">Liste des eleves</h1>
+</header>
+<main>
+    <div class="container">
+        <table class="table">
+            <thead class="table-secondary">
+            <tr>
+                <th class="table-secondary">Id</th>
+                <th class="table-secondary">Nom</th>
+                <th class="table-secondary">Prenom</th>
+                <th class="table-secondary">Contact</th>
+                <th class="table-secondary">Adresse</th>
+                <th class="table-secondary">Supprimer</th>
+                <th class="table-secondary">Modifier</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="eleve:${eleveJsp}">
+                <td th:text="${eleve.idE}"></td>
+                <td th:text="${eleve.nomE}"></td>
+                <td th:text="${eleve.prenomE}"></td>
+                <td th:text="${eleve.numeroE}"></td>
+                <td th:text="${eleve.adresseE}"></td>
+                <td>
+                    <a class="btn btn-outline-danger"
+                       onclick="return confirm('Vous êtes sûr que vous voulez supprimer cet eleve?')"
+                       th:href="@{deleteEleve(id=${eleve.idE})}">
+                        Supprimer cet eleve
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-info"
+                       th:href="@{showEleve(id=${eleve.idE})}">
+                        Modifier cet eleve
+                    </a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <a href="createEleve" class="btn btn-outline-success">Création de l'eleve</a>
+    </div>
+
+</footer>
+
+<!-- Add Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" integrity="sha512-PW94p8t+SYTRzbsAsEgF7Owkn0i0cHk84YcqYyv3gF+FkrKItT0TbjKTdENh1fZjRnZcxB23oYbcHkjIfmJyiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Title</title>
+</head>
+<body>
+<header class="p-3 mb-2 bg-secondary text-white text-center">
+    <h1>Creation du cours</h1>
+</header>
+<main class="container py-5">
+    <form th:action="@{saveEleve}" method="post">
+        <div class="mb-3">
+            <label for="nomE" class="form-label">Nom:</label>
+            <input type="text" id="nomE" name="nomE" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="prenomE" class="form-label">Prenom:</label>
+            <input type="text" id="prenomE" name="prenomE" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="numeroE" class="form-label">Contact:</label>
+            <input type="number" id="numeroE" name="numeroE" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="adresseE" class="form-label">Adresse:</label>
+            <input type="text" id="adresseE" name="adresseE" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary">Valider</button>
+    </form>
+
+
+</main>
+<footer class="p-3 bg-dark text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="EleveList" class="text-white">Liste des eleves</a>
+            </div>
+            <div class="col-md-6 text-end">
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Include Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js" integrity="sha512-EBrCNd8/tv9X56c+71a6YkOtHtLaWw42w++eKgJgbt7FvI+BOJkO5O5ZIZcM7zkxS2Rw+7Ggs0zKcV7PC3BO4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

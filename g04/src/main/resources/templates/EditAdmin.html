@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <title>Title</title>
+</head>
+<body>
+<header >
+    <h1 class="p-3 mb-2 bg-secondary text-white text-center">Modifier Information du cours</h1>
+</header>
+<main class="container my-5">
+    <form th:action="@{updateCours}" method="post">
+        <div class="form-group">
+            <label class="font-weight-bold" hidden for="IdCours"> Id du Cours : </label>
+            <input  hidden type="text" id="IdCours" name="idCours" th:value="${coursJsp.IdCours}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label class="font-weight-bold" for="nomCours">Nom du Cours : </label>
+            <input type="text" id="nomCours" name="nomCours" th:value="${coursJsp.nomCours}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label class="font-weight-bold" for="dateCours"> Date de Cours : </label>
+
+            <input type="date" id="dateCours" name="dateCours" th:value="${coursJsp.dateCours}" class="form-control">
+        </div>
+        <div class="form-group text-center">
+            <input type="submit" value="Modifier" class="btn btn-primary">
+        </div>
+    </form>
+</main>
+<footer class="bg-dark text-white py-3">
+    <div class="container text-center">
+        <a href="coursList" class="text-white">Liste des cours</a>
+    </div>
+
+</footer>
+</body>
+</html>

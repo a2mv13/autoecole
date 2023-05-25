@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des administrateurs</title>
+    <!-- Add Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header class="bg-primary">
+    <h1 class="p-3 mb-2 bg-secondary text-white">Liste des administrateurs</h1>
+</header>
+<main>
+    <div class="container">
+        <table class="table">
+            <thead class="table-secondary">
+            <tr>
+                <th class="table-secondary">Id</th>
+                <th class="table-secondary">Nom</th>
+                <th class="table-secondary">Prenom</th>
+                <th class="table-secondary">Email</th>
+                <th class="table-secondary">Mot de passe</th>
+                <th class="table-secondary">Supprimer</th>
+                <th class="table-secondary">Modifier</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="admin:${adminJsp}">
+                <td th:text="${admin.idA}"></td>
+                <td th:text="${admin.nomA}"></td>
+                <td th:text="${admin.prenomA}"></td>
+                <td th:text="${admin.emailA}"></td>
+                <td th:text="${admin.mdpA}"></td>
+                <td>
+                    <a class="btn btn-outline-danger"
+                       onclick="return confirm('Vous êtes sûr que vous voulez supprimer cet administrateur?')"
+                       th:href="@{deleteAdmin(id=${admin.idA})}">
+                        Supprimer cet admin
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-info"
+                       th:href="@{showAdmin(id=${admin.idA})}">
+                        Modifier cet admin
+                    </a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <a href="createAdmin" class="btn btn-outline-success">Création de l'admin</a>
+    </div>
+
+</footer>
+
+<!-- Add Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
